@@ -1,0 +1,413 @@
+name: Agora
+description: Agora is a real-time engagement platform providing ultra-low latency voice, video, signaling, chat,
+  interactive whiteboard, cloud recording, real-time speech-to-text, and conversational AI infrastructure for
+  human-to-human and human-to-AI interactions. The platform powers approximately 80 billion communication minutes
+  monthly across 3+ billion devices, serving 1,800+ organizations including Whatnot, The Sandbox, Education First,
+  Talkspace, HTC Vive, and Unity Technologies.
+image: https://www.agora.io/favicon.ico
+url: https://www.agora.io
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.18'
+tags:
+  - Real-Time Engagement
+  - Voice
+  - Video
+  - Signaling
+  - Conversational AI
+  - Streaming
+  - Chat
+  - Cloud Recording
+  - WebRTC
+  - Communications Platform
+apis:
+  - name: Agora Video Calling API
+    description: The Agora Video Calling API enables real-time, interactive video communication with sub-200ms global
+      latency. Supports one-to-one calls, group calls, and multi-host scenarios across mobile, web, desktop, and
+      embedded platforms. Includes AI noise suppression, super resolution, virtual backgrounds, and 3D spatial audio.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/video-calling/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Video
+      - Real-Time Communication
+      - WebRTC
+      - Calling
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/video-calling/overview/product-overview
+      - type: APIReference
+        url: https://docs.agora.io/en/video-calling/reference/api-reference
+      - type: Quickstart
+        url: https://docs.agora.io/en/video-calling/get-started/get-started-sdk
+      - type: Authentication
+        url: https://docs.agora.io/en/video-calling/get-started/authentication-workflow
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Voice Calling API
+    description: The Agora Voice Calling API embeds high-quality real-time voice chat into any application. Provides
+      crystal-clear audio with AI noise suppression, echo cancellation, and adaptive bitrate, supporting voice-only
+      experiences for social, gaming, customer support, and IoT use cases.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/voice-calling/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Voice
+      - Audio
+      - Real-Time Communication
+      - Calling
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/voice-calling/overview/product-overview
+      - type: APIReference
+        url: https://docs.agora.io/en/voice-calling/reference/api-reference
+      - type: Quickstart
+        url: https://docs.agora.io/en/voice-calling/get-started/get-started-sdk
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Interactive Live Streaming API
+    description: The Agora Interactive Live Streaming API powers ultra-low latency live streaming with interactive
+      multi-host capabilities for audiences of any size. Supports live shopping, social audio, virtual events,
+      esports, and broadcast experiences where viewers can be promoted to co-hosts in real time.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/interactive-live-streaming/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Live Streaming
+      - Broadcasting
+      - Interactive
+      - Real-Time Communication
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/interactive-live-streaming/overview/product-overview
+      - type: APIReference
+        url: https://docs.agora.io/en/interactive-live-streaming/reference/api-reference
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Broadcast Streaming API
+    description: The Agora Broadcast Streaming API supports one-way large-scale content distribution with optimized
+      bandwidth for audience-only scenarios such as town halls, concerts, sports broadcasts, and one-to-many media
+      experiences.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/broadcast-streaming/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Broadcasting
+      - Streaming
+      - Media
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/broadcast-streaming/overview/product-overview
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Signaling API (RTM)
+    description: The Agora Signaling API (formerly Real-Time Messaging / RTM) provides real-time low-latency
+      synchronization of metadata, presence, channel events, point-to-point messages, and stream-of-state payloads.
+      Designed to complement RTC channels with structured signaling and state distribution at scale.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/signaling/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Signaling
+      - Messaging
+      - Real-Time
+      - Presence
+      - State Sync
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/signaling/overview/product-overview
+      - type: APIReference
+        url: https://docs.agora.io/en/signaling/reference/api
+      - type: RESTAPI
+        url: https://docs.agora.io/en/signaling/rest-api/overview
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Conversational AI Engine API
+    description: The Agora Conversational AI Engine enables building voice-enabled AI agents with sub-second
+      response times by integrating any LLM, ASR, and TTS provider into Agora's real-time voice infrastructure.
+      Supports streaming barge-in, turn detection, live avatar synthesis, and seamless human-to-AI conversations.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/conversational-ai/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - AI
+      - Conversational AI
+      - Voice Agents
+      - LLM
+      - Real-Time AI
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/conversational-ai/overview/product-overview
+      - type: RESTAPI
+        url: https://docs.agora.io/en/conversational-ai/rest-api/agent/join
+      - type: Quickstart
+        url: https://docs.agora.io/en/conversational-ai/get-started/quickstart
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Chat API
+    description: The Agora Chat API provides scalable in-app messaging with one-to-one chat, group chat, chat rooms,
+      threads, reactions, attachments, push notifications, and moderation. Built for community, social, customer
+      support, and marketplace experiences.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/agora-chat/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Chat
+      - Messaging
+      - In-App Messaging
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/agora-chat/overview/product-overview
+      - type: RESTAPI
+        url: https://docs.agora.io/en/agora-chat/restful-api/restful-overview
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Interactive Whiteboard API
+    description: The Agora Interactive Whiteboard API embeds collaborative real-time digital whiteboards for
+      drawing, annotation, presentation, PPT/PDF rendering, and shared cursor experiences. Designed for online
+      education, remote work, design collaboration, and telehealth.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/interactive-whiteboard/overview/product-overview
+    baseURL: https://api.netless.link
+    tags:
+      - Whiteboard
+      - Collaboration
+      - Annotation
+      - Education
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/interactive-whiteboard/overview/product-overview
+      - type: RESTAPI
+        url: https://docs.agora.io/en/interactive-whiteboard/reference/whiteboard-api/overview
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Cloud Recording API
+    description: The Agora Cloud Recording API records voice, video, and interactive live streaming sessions to
+      cloud storage (AWS S3, Azure Blob, Google Cloud Storage, Alibaba OSS, Qiniu, Tencent COS). Supports
+      individual and composite recording modes, MP4/HLS outputs, and live transcoding.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/cloud-recording/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Cloud Recording
+      - Recording
+      - Media Storage
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/cloud-recording/overview/product-overview
+      - type: RESTAPI
+        url: https://docs.agora.io/en/cloud-recording/reference/restful-api
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Real-Time Speech-to-Text API
+    description: The Agora Real-Time Speech-to-Text API provides streaming transcription and real-time translation
+      across multiple languages, with captions delivered into Agora RTC channels. Used for accessibility, live
+      meeting transcripts, captioned live streams, and multilingual broadcasts.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/real-time-stt/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Speech-to-Text
+      - Transcription
+      - Translation
+      - Captions
+      - AI
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/real-time-stt/overview/product-overview
+      - type: RESTAPI
+        url: https://docs.agora.io/en/real-time-stt/rest-api/v7.x/join
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+  - name: Agora Analytics API
+    description: The Agora Analytics API surfaces quality, performance, and usage metrics for all RTC, signaling,
+      chat, and recording sessions. Provides call inspector, real-time dashboards, geographic performance, and
+      historical insights for production observability.
+    image: https://www.agora.io/favicon.ico
+    humanURL: https://docs.agora.io/en/agora-analytics/overview/product-overview
+    baseURL: https://api.agora.io
+    tags:
+      - Analytics
+      - Observability
+      - Quality of Service
+    properties:
+      - type: Documentation
+        url: https://docs.agora.io/en/agora-analytics/overview/product-overview
+    contact:
+      - FN: Agora Support
+        email: support@agora.io
+common:
+  - type: Website
+    url: https://www.agora.io
+  - type: Portal
+    url: https://docs.agora.io/en/
+  - type: Documentation
+    url: https://docs.agora.io/en/
+  - type: APIReference
+    url: https://docs.agora.io/en/api-reference
+  - type: Console
+    url: https://console.agora.io/
+  - type: SignUp
+    url: https://sso.agora.io/en/signup
+  - type: Pricing
+    url: https://www.agora.io/en/pricing/
+  - type: Authentication
+    url: https://docs.agora.io/en/video-calling/get-started/authentication-workflow
+  - type: StatusPage
+    url: https://status.agora.io/
+  - type: Support
+    url: https://www.agora.io/en/support/
+  - type: Blog
+    url: https://www.agora.io/en/blog/
+  - type: ChangeLog
+    url: https://docs.agora.io/en/video-calling/overview/release-notes
+  - type: GitHubOrganization
+    url: https://github.com/AgoraIO
+  - type: GitHubOrganization
+    url: https://github.com/AgoraIO-Community
+  - type: GitHubOrganization
+    url: https://github.com/AgoraIO-Extensions
+  - type: GitHubOrganization
+    url: https://github.com/AgoraIO-Solutions
+  - type: GitHubOrganization
+    url: https://github.com/AgoraIO-Usecase
+  - type: StackOverflow
+    url: https://stackoverflow.com/questions/tagged/agora.io
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/agora-lab-inc-/
+  - type: Twitter
+    url: https://twitter.com/AgoraIO
+  - type: YouTube
+    url: https://www.youtube.com/c/AgoraIo
+  - type: TermsOfService
+    url: https://www.agora.io/en/terms-of-service/
+  - type: PrivacyPolicy
+    url: https://www.agora.io/en/privacy-policy/
+  - type: SDK
+    url: https://docs.agora.io/en/sdks
+  - type: CLI
+    url: https://github.com/AgoraIO/cli
+  - type: Webhooks
+    url: https://docs.agora.io/en/video-calling/develop/notifications
+  - type: Features
+    data:
+      - name: Ultra-Low Latency
+        description: Sub-200ms global latency for responsive real-time voice, video, and signaling on a software-defined
+          real-time network spanning 200+ data centers across 200+ countries.
+      - name: 99.999% Uptime SLA
+        description: Five-nines uptime guarantee with 24/7 monitoring and incident response across the global Agora SD-RTN
+          network.
+      - name: AI Noise Suppression
+        description: Deep-learning audio enhancement that isolates human speech and removes background noise, keyboard
+          clicks, and ambient interference.
+      - name: 3D Spatial Audio
+        description: Positional audio rendering that places voices in 3D space for immersive social, gaming, and virtual
+          world experiences.
+      - name: Live Avatar Synthesis
+        description: Real-time avatar animation synchronized to speech audio, enabling generative video personas for AI
+          agents and human speakers.
+      - name: Real-Time Transcription and Translation
+        description: Streaming speech-to-text and live cross-language translation delivered into RTC channels as captions.
+      - name: Cross-Platform SDKs
+        description: First-party SDKs for iOS, Android, Web, Windows, macOS, Linux, Unity, Unreal Engine, Flutter, React
+          Native, Electron, and embedded devices.
+      - name: Enterprise Compliance
+        description: SOC 2 Type II, GDPR, HIPAA, and regional residency support for regulated workloads.
+      - name: No-Code App Builder and UI Kits
+        description: Drop-in UI Kit and visual App Builder that let teams launch RTE experiences without writing
+          custom signaling or media plumbing.
+  - type: UseCases
+    data:
+      - name: Telehealth and Remote Care
+        description: HIPAA-aligned video visits, secure messaging, and AI-assisted clinical workflows between
+          patients and providers.
+      - name: Live Shopping and Commerce
+        description: Interactive live streams with co-host promotion, shoppable overlays, and real-time engagement for
+          marketplaces like Whatnot.
+      - name: Online Education and EdTech
+        description: Virtual classrooms, breakout rooms, shared whiteboards, and recorded lessons used by Education First
+          and global learning platforms.
+      - name: Real-Time Gaming and Virtual Worlds
+        description: Proximity voice, team chat, and 3D spatial audio for multiplayer games, metaverse platforms like
+          The Sandbox, and VR experiences on HTC Vive.
+      - name: Media, Entertainment, and Social Audio
+        description: Drop-in audio rooms, fan engagement broadcasts, watch parties, and creator livestreams.
+      - name: Customer Support and Contact Center
+        description: Voice, video, and chat support channels with recording, transcription, and AI agent escalation.
+      - name: Conversational AI Voice Agents
+        description: LLM-powered phone and in-app voice agents with sub-second latency, used for sales, support, and
+          companion applications.
+      - name: IoT and Embedded Communications
+        description: Low-bandwidth, low-power voice and video for doorbells, intercoms, robotics, and connected devices.
+  - type: Integrations
+    data:
+      - name: OpenAI Realtime API
+        description: Reference integration combining Agora's RTC layer with OpenAI's Realtime API for voice agents,
+          published as openai-realtime-python.
+      - name: Anthropic Claude
+        description: Conversational AI Engine integration with Claude models for natural-language voice agents and
+          enterprise assistants.
+      - name: AWS, Azure, Google Cloud Storage
+        description: Cloud Recording targets for video, audio, and composite session archives across major cloud
+          storage providers.
+      - name: Alibaba OSS, Qiniu, Tencent COS
+        description: Additional regional cloud storage targets for recording and content delivery in APAC.
+      - name: WordPress
+        description: Official Agora Video for WordPress plugin for embedding live broadcast and video conferencing in
+          posts and pages.
+      - name: Salesforce, HubSpot, Zendesk
+        description: CRM and helpdesk integrations for contact center and customer engagement workflows.
+      - name: WeChat Mini Programs
+        description: Embedded Agora SDKs that run inside WeChat Mini Program runtimes for China-market deployments.
+      - name: Unity and Unreal Engine
+        description: Native engine plugins for in-game voice, video, and signaling.
+  - type: Solutions
+    data:
+      - name: Real-Time Engagement Platform
+        description: Unified voice, video, signaling, chat, recording, and analytics for any human-to-human
+          interactive experience.
+      - name: Conversational AI Platform
+        description: End-to-end stack for building voice AI agents with avatar, ASR, LLM, TTS, and noise suppression
+          provided as a managed pipeline.
+      - name: Live Streaming and Broadcast
+        description: One-to-many and interactive many-to-many live streaming with CDN egress and recording.
+      - name: Embedded and IoT RTE
+        description: Optimized SDKs for low-resource devices and embedded systems.
+  - type: SDK
+    url: https://github.com/AgoraIO/AgoraRtcEngine_iOS
+  - type: SDK
+    url: https://github.com/AgoraIO/React-Native-SDK
+  - type: SDK
+    url: https://github.com/AgoraIO/agora-rtc-web
+  - type: SDK
+    url: https://github.com/AgoraIO-Community/Agora-Flutter-Quickstart
+  - type: SDK
+    url: https://github.com/AgoraIO/agora-react-native-rtm
+  - type: GitHubRepository
+    url: https://github.com/AgoraIO/API-Examples
+  - type: GitHubRepository
+    url: https://github.com/AgoraIO/openai-realtime-python
+  - type: GitHubRepository
+    url: https://github.com/AgoraIO/skills
+  - type: GitHubRepository
+    url: https://github.com/AgoraIO/Tools
+  - type: GitHubRepository
+    url: https://github.com/AgoraIO/Docs-Source
+  - type: GitHubRepository
+    url: https://github.com/AgoraIO/Agora-RESTful-Service
+  - type: GitHubRepository
+    url: https://github.com/AgoraIO/Agora-WordPress
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
