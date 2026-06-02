@@ -1,0 +1,66 @@
+name: Agora
+asyncapi_review:
+  date: '2026-05-29'
+  reviewer: Kin Lane / API Evangelist
+  scope: >
+    Determine whether Agora exposes any publicly documented WebSocket protocol
+    that could be modeled as an AsyncAPI 2.6 specification. Outcome: no public
+    WebSocket API is documented. Spec NOT produced.
+  status: no-asyncapi-spec
+  conclusion: webhooks-and-sdk-only
+  summary: >
+    Agora is built on its proprietary Software Defined Real-Time Network
+    (SD-RTN). All real-time capabilities (Voice Calling, Video Calling,
+    Interactive Live Streaming, Signaling/RTM, Chat, Conversational AI,
+    Whiteboard, IoT) are exposed exclusively through (a) first-party platform
+    SDKs that wrap the proprietary SD-RTN transport, and (b) HTTPS REST APIs
+    for server-side control, provisioning, recording, analytics, and history.
+    Event delivery to customer infrastructure is performed via outbound HTTPS
+    webhooks (Notifications), not WebSocket subscriptions. The Agora Chat REST
+    documentation explicitly states only HTTPS is supported. The Agora
+    Signaling overview lists only the Signaling SDK and REST API as access
+    methods. No public WebSocket URL, subprotocol, handshake, or message
+    schema is documented across the developer portal. As a result there is no
+    documented surface area for an AsyncAPI 2.6 WebSocket specification.
+  findings:
+    - finding: No public WebSocket endpoint, subprotocol, or message schema is documented anywhere in docs.agora.io.
+    - finding: All real-time transport is encapsulated inside Agora's proprietary SD-RTN and exposed only via first-party SDKs (iOS, Android, Web, Windows, macOS, Linux, Unity, Unreal, Flutter, React Native, Electron, embedded).
+    - finding: Server-side control of channels, tokens, recording, analytics, signaling history, chat users/groups, and conversational AI agents is exposed only as HTTPS REST APIs.
+    - finding: Event delivery is via Agora Notifications, an outbound HTTPS webhook product — not a WebSocket subscription.
+    - finding: The Agora Chat REST overview explicitly states "the Chat RESTful APIs only support the HTTPS protocol."
+    - finding: The Agora Signaling REST overview documents only the Signaling SDK and HTTPS REST API as access methods.
+    - finding: The consolidated API reference index lists SDKs and RESTful APIs for every product; no product is documented with a WebSocket API.
+  urls_checked:
+    - url: https://docs.agora.io
+      result: Product hub; no WebSocket documentation.
+    - url: https://docs.agora.io/en/sdks
+      result: SDK download hub; no protocol details for direct WebSocket access.
+    - url: https://docs.agora.io/en/api-reference
+      result: Consolidated API reference index; only SDKs and RESTful APIs listed. No WebSocket APIs.
+    - url: https://docs.agora.io/en/signaling/overview/product-overview
+      result: Signaling (RTM) overview; no WebSocket access documented.
+    - url: https://docs.agora.io/en/signaling/rest-api/overview
+      result: Signaling REST overview; explicitly lists only Signaling SDK and REST API as access methods.
+    - url: https://docs.agora.io/en/agora-chat/overview/product-overview
+      result: Chat overview; no WebSocket access documented.
+    - url: https://docs.agora.io/en/agora-chat/restful-api/restful-overview
+      result: Chat REST overview; explicitly states only HTTPS is supported.
+    - url: https://docs.agora.io/en/video-calling/develop/notifications
+      result: 404 at this exact slug; Notifications is documented as outbound HTTPS webhooks via the Notifications product area, not WebSocket.
+    - url: https://docs.agora.io/en/video-calling/overview/product-overview
+      result: Video Calling overview; SDK + REST only.
+    - url: https://docs.agora.io/en/voice-calling/overview/product-overview
+      result: Voice Calling overview; SDK + REST only.
+    - url: https://docs.agora.io/en/conversational-ai/overview/product-overview
+      result: Conversational AI Engine; REST control plane, SDK media plane. No WebSocket developer API.
+    - url: https://docs.agora.io/en/interactive-whiteboard/overview/product-overview
+      result: Whiteboard; SDK + REST only.
+  recommendation: >
+    Do not generate an AsyncAPI 2.6 specification for Agora. The public surface
+    area is fully covered by (1) an OpenAPI specification of the REST APIs and
+    (2) a webhook event catalog of the Notifications product. If Agora ever
+    publishes a documented WebSocket gateway for Signaling, Chat, or
+    Notifications, re-evaluate at that time.
+  next_steps:
+    - Maintain apis.yml without an AsyncAPI property until a public WebSocket protocol is documented.
+    - When producing protocol coverage, prioritize OpenAPI for the REST surface and a webhook payload catalog for Notifications.
