@@ -4,15 +4,12 @@
     {
       "source": "https://www.agora.io/en/blog/",
       "feed_url": "https://www.agora.io/en/blog/",
-      "title": "",
+      "title": "Agora Blog",
       "saved": 0,
-      "method": "none"
-    },
-    {
-      "source": "https://www.agora.io/en/support/",
-      "error": "HTTPError"
+      "method": "html-scrape",
+      "note": "No RSS/Atom feed resolved (feed/, rss/, feed.xml, atom.xml, index.xml all 404). HTML scrape returned posts; most recent is 2026-06-12, before prior fetched cutoff 2026-06-14, so nothing new."
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-21T17:00:00Z"
 }
