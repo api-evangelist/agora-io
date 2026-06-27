@@ -38,7 +38,7 @@ apis:
         url: https://docs.agora.io/en/video-calling/overview/product-overview
       - type: APIReference
         url: https://docs.agora.io/en/video-calling/reference/api-reference
-      - type: Quickstart
+      - type: GettingStarted
         url: https://docs.agora.io/en/video-calling/get-started/get-started-sdk
       - type: Authentication
         url: https://docs.agora.io/en/video-calling/get-started/authentication-workflow
@@ -62,7 +62,7 @@ apis:
         url: https://docs.agora.io/en/voice-calling/overview/product-overview
       - type: APIReference
         url: https://docs.agora.io/en/voice-calling/reference/api-reference
-      - type: Quickstart
+      - type: GettingStarted
         url: https://docs.agora.io/en/voice-calling/get-started/get-started-sdk
     contact:
       - FN: Agora Support
@@ -145,7 +145,7 @@ apis:
         url: https://docs.agora.io/en/conversational-ai/overview/product-overview
       - type: RESTAPI
         url: https://docs.agora.io/en/conversational-ai/rest-api/agent/join
-      - type: Quickstart
+      - type: GettingStarted
         url: https://docs.agora.io/en/conversational-ai/get-started/quickstart
     contact:
       - FN: Agora Support
@@ -257,7 +257,7 @@ common:
     url: https://docs.agora.io/en/api-reference
   - type: Console
     url: https://console.agora.io/
-  - type: SignUp
+  - type: Signup
     url: https://sso.agora.io/en/signup
   - type: Pricing
     url: https://www.agora.io/en/pricing/
@@ -293,7 +293,7 @@ common:
     url: https://www.agora.io/en/terms-of-service/
   - type: PrivacyPolicy
     url: https://www.agora.io/en/privacy-policy/
-  - type: SDK
+  - type: SDKs
     url: https://docs.agora.io/en/sdks
   - type: CLI
     url: https://github.com/AgoraIO/cli
@@ -383,15 +383,15 @@ common:
         description: One-to-many and interactive many-to-many live streaming with CDN egress and recording.
       - name: Embedded and IoT RTE
         description: Optimized SDKs for low-resource devices and embedded systems.
-  - type: SDK
+  - type: SDKs
     url: https://github.com/AgoraIO/AgoraRtcEngine_iOS
-  - type: SDK
+  - type: SDKs
     url: https://github.com/AgoraIO/React-Native-SDK
-  - type: SDK
+  - type: SDKs
     url: https://github.com/AgoraIO/agora-rtc-web
-  - type: SDK
+  - type: SDKs
     url: https://github.com/AgoraIO-Community/Agora-Flutter-Quickstart
-  - type: SDK
+  - type: SDKs
     url: https://github.com/AgoraIO/agora-react-native-rtm
   - type: GitHubRepository
     url: https://github.com/AgoraIO/API-Examples
