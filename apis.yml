@@ -247,6 +247,10 @@ apis:
       - FN: Agora Support
         email: support@agora.io
 common:
+  - type: TrustCenter
+    url: security/agora-io-trust-center.yml
+  - type: DomainSecurity
+    url: security/agora-io-domain-security.yml
   - type: Website
     url: https://www.agora.io
   - type: Portal

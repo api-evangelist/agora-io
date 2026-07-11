@@ -1,0 +1,34 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.agora.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 19 09:06:32 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: docs.agora.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 19 09:06:32 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: api.agora.io
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Dec 19 09:06:32 2026 GMT
+  hsts: null
+domains:
+- domain: agora.io
+  dnssec: false
+  caa:
+  - 0 issue "sectigo.com"
+  - 0 issue "trust-provider.com"
+  - 0 issue "trustasia.com"
+  - 0 issuewild "digicert.com"
+  - 0 issuewild "godaddy.com"
+  - 0 issuewild "trustasia.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
