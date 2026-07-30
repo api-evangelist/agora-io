@@ -4,6 +4,17 @@ description: Agora is a real-time engagement platform providing ultra-low latenc
   human-to-human and human-to-AI interactions. The platform powers approximately 80 billion communication minutes
   monthly across 3+ billion devices, serving 1,800+ organizations including Whatnot, The Sandbox, Education First,
   Talkspace, HTC Vive, and Unity Technologies.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 image: https://www.agora.io/favicon.ico
 url: https://www.agora.io
 created: '2026-05-25'
