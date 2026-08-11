@@ -258,6 +258,10 @@ apis:
       - FN: Agora Support
         email: support@agora.io
 common:
+  - type: IssueTracker
+    url: https://github.com/AgoraIO/openai-realtime-python/issues
+  - type: Releases
+    url: https://github.com/AgoraIO/openai-realtime-python/releases
   - type: TrustCenter
     url: security/agora-io-trust-center.yml
   - type: DomainSecurity
