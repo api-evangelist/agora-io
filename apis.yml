@@ -146,6 +146,12 @@ apis:
     humanURL: https://docs.agora.io/en/conversational-ai/overview/product-overview
     baseURL: https://api.agora.io
     tags:
+      - Artificial Intelligence
+      - Conversational AI
+      - Voice Agents
+      - LLM
+      - Real-Time AI
+    tags_raw:
       - AI
       - Conversational AI
       - Voice Agents
@@ -227,6 +233,12 @@ apis:
     humanURL: https://docs.agora.io/en/real-time-stt/overview/product-overview
     baseURL: https://api.agora.io
     tags:
+      - Speech-to-Text
+      - Transcription
+      - Translation
+      - Captions
+      - Artificial Intelligence
+    tags_raw:
       - Speech-to-Text
       - Transcription
       - Translation
