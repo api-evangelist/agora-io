@@ -1,0 +1,31 @@
+# Front Door AI Index — agora-io — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: agora-io
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.agora.io
+  final_host: www.agora.io
+  ownership: own
+  owner: agora-io
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 36
+  host_score: 36
+  density: 30.87
+  words: 1166
+  tiers:
+    agentic: 8
+    core: 27
+    model: 1
+  ambiguous: 6
+  top_terms:
+    AI: 24
+    agent: 6
+    AI agent: 4
+    conversational AI: 4
+    LLMs: 2
+    GPT: 1
+    large language model: 1
