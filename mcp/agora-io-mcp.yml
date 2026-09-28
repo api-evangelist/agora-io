@@ -16,12 +16,21 @@ deployment:
 tools_count: 4
 tools:
 - name: algolia_search_for_facet_values
-  description: ''
+  description: Returns matching values for a single facet attribute in an Algolia index. Useful for suggesting
+    or exploring possible facet values (e.g., brand, category, color).
 - name: algolia_search_index_agora_api_refapirefcrawler
-  description: ''
+  description: 'Search the Algolia index "agora_api_refAPIRefCrawler" across multiple query variations
+    and return deduplicated hits with merged facets.  About this index: Use this index to look up SDK
+    methods, classes, parameters, callbacks, and usage deta'
 - name: algolia_search_index_agora_swift_api_ref
-  description: ''
+  description: 'Search the Algolia index "agora_swift_api_ref" across multiple query variations and return
+    deduplicated hits with merged facets.  About this index: Use this index to look up classes, methods,
+    properties, enumerations, and operators for Agor'
 - name: algolia_search_index_docs_portal_en
-  description: ''
+  description: 'Search the Algolia index "docs_portal_en" across multiple query variations and return
+    deduplicated hits with merged facets.  About this index: - **What this index contains**: 1 record
+    = Documentation page related to API references for speec'
 tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
