@@ -5,16 +5,23 @@ description: Agora is a real-time engagement platform providing ultra-low latenc
   monthly across 3+ billion devices, serving 1,800+ organizations including Whatnot, The Sandbox, Education First,
   Talkspace, HTC Vive, and Unity Technologies.
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - agoraio/agora-restful-service
+    - agoraio/agora-wordpress
+    - agoraio/api-examples
+    - agoraio/docs-source
+    - agoraio/openai-realtime-python
   open_source: unknown
   commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -43,6 +50,7 @@ tags:
   - Cloud Recording
   - WebRTC
   - Communications Platform
+  - Real-Time
 apis:
   - name: Agora Video Calling API
     description: The Agora Video Calling API enables real-time, interactive video communication with sub-200ms global
