@@ -1,0 +1,403 @@
+{
+  "endpoint": "https://mcp.agora.io",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "algolia-mcp",
+    "version": "1.25.3"
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "algolia_search_for_facet_values",
+        "title": "Search For Facet Values",
+        "description": "Returns matching values for a single facet attribute in an Algolia index. Useful for suggesting or exploring possible facet values (e.g., brand, category, color).",
+        "inputSchema": {
+          "type": "object",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "indexName": {
+              "type": "string",
+              "enum": [
+                "agora_api_refAPIRefCrawler",
+                "agora_swift_api_ref",
+                "docs_portal_en"
+              ],
+              "description": "Algolia index name to query"
+            },
+            "facetName": {
+              "type": "string",
+              "description": "Name of the facet attribute to search."
+            },
+            "facetQuery": {
+              "default": "",
+              "description": "Optional text to match facet values against. Empty string returns top values.",
+              "type": "string"
+            },
+            "maxFacetHits": {
+              "default": 10,
+              "description": "Maximum number of facet values to return.",
+              "type": "number",
+              "maximum": 100
+            },
+            "sortFacetValuesBy": {
+              "default": "count",
+              "description": "Controls in which order the facet values are retrieved within each faceted attribute.",
+              "type": "string",
+              "enum": [
+                "count",
+                "alpha"
+              ]
+            },
+            "userIntent": {
+              "type": "string",
+              "description": "How the LLM interpreted the user's intention and decided to use available tools to achieve the result. Describe the user's goal and the reasoning behind choosing this tool (e.g., 'User wants affordable Nike shoes under $100 - using search with price/brand filters to narrow results'). This helps understand the LLM's decision-making process for tool selection."
+            },
+            "originalQuery": {
+              "type": "string",
+              "description": "The original, unmodified user prompt that was sent to the LLM. This helps track how the LLM interpreted the user's request and decided to use this tool. Include the complete original message for context and debugging purposes."
+            },
+            "sessionId": {
+              "type": "string",
+              "description": "A unique session identifier (UUID format) that represents the user's current chat session. The LLM should generate and maintain the same UUID for all requests within a single user conversation, allowing analytics and search behavior to be grouped by session. Format (UUIDv4): xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (e.g., '550e8400-e29b-41d4-a716-446655440000')."
+            }
+          },
+          "required": [
+            "indexName",
+            "facetName",
+            "userIntent",
+            "originalQuery",
+            "sessionId"
+          ]
+        }
+      },
+      {
+        "name": "algolia_search_index_agora_api_refapirefcrawler",
+        "title": "Algolia Search Index agora_api_refAPIRefCrawler",
+        "description": "Search the Algolia index \"agora_api_refAPIRefCrawler\" across multiple query variations and return deduplicated hits with merged facets.\n\nAbout this index: Use this index to look up SDK methods, classes, parameters, callbacks, and usage details across Agora&amp;amp;#39;s real-time communication SDKs. &amp;amp;gt; Note: Signaling SDK API references are not in this index. Use `docs_platform_aware_markdown` with `facet_product: signaling` instead. &amp;amp;gt; Note: iOS and macOS are not in this index. Use `agora_swift_api_ref` instead. ## Available Products - `video-sdk` — Video calling SDK - `voice-sdk` — Voice calling SDK (shares most methods with video-sdk) - `chat-sdk` — Chat/messaging SDK - `interactive-whiteboard-sdk` — Whiteboard SDK - `server-gateway-sdk` — Server-side gateway SDK - `iot-sdk` — IoT SDK - `mediaplayer-kit` — Media player SDK - `flexible-classroom-sdk` — Classroom SDK ## Available Platforms `android`, `web`, `cpp`, `unity`, `electron`, `flutter`, `reactjs`, `react-native`, `unreal-engine`, `blueprint`, `windows-csharp`, `linux-cpp`, `linux-java`, `python`, `go` ## Versions - `4.x` — Video/Voice SDK - `6.x` — Flutter - `2.x` — React JS, Whiteboard - `1.x` — Chat SDK, IoT, MediaPlayer Kit ## Search Tips - Search by method name, class name, or feature description - Web SDK methods are on interfaces like `IAgoraRTCClient`, `ILocalAudioTrack` - React JS uses hooks and components: `useClientEvent`, `useRemoteUsers`, `AgoraRTCProvider` - Method overloads are indicated by `[1/3]`, `[2/3]` etc. in the `methodName` field - The `content` field is truncated at 5000 characters — use the `url` for the full page.\n\nFacet examples are not exhaustive. Use exact values observed in metadata or search results; use facet-value search when available. Never invent values or construct category paths. If no value is known for a positive filter, search the concept as query text first and refine using returned facets.\n\nUnsampled values are checked against the index. Facet validation errors stop the entire call before any result searches, even when partial results are enabled.\n\nPartial results: when at least one query succeeds and every failed query is rejected as invalid (HTTP 400), the response includes partial: true and a failures array keyed by zero-based queryIndexes. Hits, nbHits, and facets then cover only the successful queries. Any other result-search failure returns bulk_search_failed for the entire tool call.",
+        "inputSchema": {
+          "type": "object",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "queries": {
+              "minItems": 1,
+              "maxItems": 5,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "description": "Search query for this variation. Always include all the results returned, don't filter them out, nor reorder them."
+                  },
+                  "facet_type": {
+                    "description": "Exact-value facet filter for type. Preserve the value's formatting. Values within this facet use OR; different facets use AND. Known examples (not an exhaustive list): 'method', 'class'.",
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Array of self-contained search variations (max 5). Each variation carries its own query AND its own facet_<name> filters, so you can vary the query and the facets together in a single call."
+            },
+            "attributesToRetrieve": {
+              "default": [
+                "*"
+              ],
+              "description": "List of attributes to retrieve. If not specified, all attributes are returned. If user specifies something to return, leverage this setting to ensure minimal payload. '*' means all attributes.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "page": {
+              "default": 0,
+              "description": "Specify the page to retrieve.",
+              "type": "number",
+              "minimum": 0
+            },
+            "hitsPerPage": {
+              "default": 5,
+              "description": "Number of hits per page.",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "clickAnalytics": {
+              "default": true,
+              "description": "Whether to enable click analytics for this search. When true, Algolia tracks click events for analytics and Insights.",
+              "type": "boolean"
+            },
+            "userIntent": {
+              "type": "string",
+              "description": "How the LLM interpreted the user's intention and decided to use available tools to achieve the result. Describe the user's goal and the reasoning behind choosing this tool (e.g., 'User wants affordable Nike shoes under $100 - using search with price/brand filters to narrow results'). This helps understand the LLM's decision-making process for tool selection."
+            },
+            "originalQuery": {
+              "type": "string",
+              "description": "The original, unmodified user prompt that was sent to the LLM. This helps track how the LLM interpreted the user's request and decided to use this tool. Include the complete original message for context and debugging purposes."
+            },
+            "sessionId": {
+              "type": "string",
+              "description": "A unique session identifier (UUID format) that represents the user's current chat session. The LLM should generate and maintain the same UUID for all requests within a single user conversation, allowing analytics and search behavior to be grouped by session. Format (UUIDv4): xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (e.g., '550e8400-e29b-41d4-a716-446655440000')."
+            }
+          },
+          "required": [
+            "queries",
+            "userIntent",
+            "originalQuery",
+            "sessionId"
+          ]
+        }
+      },
+      {
+        "name": "algolia_search_index_agora_swift_api_ref",
+        "title": "Algolia Search Index agora_swift_api_ref",
+        "description": "Search the Algolia index \"agora_swift_api_ref\" across multiple query variations and return deduplicated hits with merged facets.\n\nAbout this index: Use this index to look up classes, methods, properties, enumerations, and operators for Agora&amp;amp;#39;s iOS and macOS SDKs. Content is extracted from DocC archives. ## Available Facets - `platform` — `ios`, `macos` - `product` — `video-calling` - `version` — `4.x` - `symbol_kind` — `class`, `method`, `property`, `enum`, `case`, `op`, `struct`, `protocol`, `typealias` ## Key Fields - `abstract` — human-readable description of the symbol - `declaration` — full Swift signature including parameters and return type - `parent` — the class or enum the symbol belongs to - `url` — always include this in responses ## Search Tips - Search by symbol name for exact lookups — `joinChannel`, `AgoraRtcEngineKit`, `muteLocalAudioStream` - Search by concept for discovery — `audio mixing`, `screen sharing`, `encryption` - Use `symbol_kind` to narrow results when the user asks for methods or properties on a specific class.\n\nFacet examples are not exhaustive. Use exact values observed in metadata or search results; use facet-value search when available. Never invent values or construct category paths. If no value is known for a positive filter, search the concept as query text first and refine using returned facets.\n\nUnsampled values are checked against the index. Facet validation errors stop the entire call before any result searches, even when partial results are enabled.\n\nPartial results: when at least one query succeeds and every failed query is rejected as invalid (HTTP 400), the response includes partial: true and a failures array keyed by zero-based queryIndexes. Hits, nbHits, and facets then cover only the successful queries. Any other result-search failure returns bulk_search_failed for the entire tool call.",
+        "inputSchema": {
+          "type": "object",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "queries": {
+              "minItems": 1,
+              "maxItems": 5,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "description": "Search query for this variation. Always include all the results returned, don't filter them out, nor reorder them."
+                  },
+                  "facet_product": {
+                    "description": "Exact-value facet filter for product. Preserve the value's formatting. Values within this facet use OR; different facets use AND. Known examples (not an exhaustive list): 'video-calling'.",
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "facet_version": {
+                    "description": "Exact-value facet filter for version. Preserve the value's formatting. Values within this facet use OR; different facets use AND. Known examples (not an exhaustive list): '4.x'.",
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "facet_platform": {
+                    "description": "Exact-value facet filter for platform. Preserve the value's formatting. Values within this facet use OR; different facets use AND. Known examples (not an exhaustive list): 'macos', 'ios'.",
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "facet_symbol_kind": {
+                    "description": "Exact-value facet filter for symbol_kind. Preserve the value's formatting. Values within this facet use OR; different facets use AND. Known examples (not an exhaustive list): 'case', 'method', 'property', 'init', 'op', 'enum', 'class', 'var', 'protocol', 'typealias', 'struct'.",
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Array of self-contained search variations (max 5). Each variation carries its own query AND its own facet_<name> filters, so you can vary the query and the facets together in a single call."
+            },
+            "attributesToRetrieve": {
+              "default": [
+                "*"
+              ],
+              "description": "List of attributes to retrieve. If not specified, all attributes are returned. If user specifies something to return, leverage this setting to ensure minimal payload. '*' means all attributes.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "page": {
+              "default": 0,
+              "description": "Specify the page to retrieve.",
+              "type": "number",
+              "minimum": 0
+            },
+            "hitsPerPage": {
+              "default": 5,
+              "description": "Number of hits per page.",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "clickAnalytics": {
+              "default": true,
+              "description": "Whether to enable click analytics for this search. When true, Algolia tracks click events for analytics and Insights.",
+              "type": "boolean"
+            },
+            "userIntent": {
+              "type": "string",
+              "description": "How the LLM interpreted the user's intention and decided to use available tools to achieve the result. Describe the user's goal and the reasoning behind choosing this tool (e.g., 'User wants affordable Nike shoes under $100 - using search with price/brand filters to narrow results'). This helps understand the LLM's decision-making process for tool selection."
+            },
+            "originalQuery": {
+              "type": "string",
+              "description": "The original, unmodified user prompt that was sent to the LLM. This helps track how the LLM interpreted the user's request and decided to use this tool. Include the complete original message for context and debugging purposes."
+            },
+            "sessionId": {
+              "type": "string",
+              "description": "A unique session identifier (UUID format) that represents the user's current chat session. The LLM should generate and maintain the same UUID for all requests within a single user conversation, allowing analytics and search behavior to be grouped by session. Format (UUIDv4): xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (e.g., '550e8400-e29b-41d4-a716-446655440000')."
+            }
+          },
+          "required": [
+            "queries",
+            "userIntent",
+            "originalQuery",
+            "sessionId"
+          ]
+        }
+      },
+      {
+        "name": "algolia_search_index_docs_portal_en",
+        "title": "Algolia Search Index docs_portal_en",
+        "description": "Search the Algolia index \"docs_portal_en\" across multiple query variations and return deduplicated hits with merged facets.\n\nAbout this index: - **What this index contains**: 1 record = Documentation page related to API references for speech-to-text services. - **Which industry or industries it serves**: Technology, specifically API documentation for speech-to-text services. - **Who would use this index**: Developers, technical writers, and internal teams managing API documentation. - **Primary use cases**: Search and filtering of API documentation, enabling users to quickly find relevant API endpoints and details. - **Define precisely what a single record represents**: A single record represents a page of API documentation, including details about specific API endpoints, usage instructions, and configuration options. - **Most relevant attributes**: - `breadcrumbs` (searchable): Hierarchical navigation path for the documentation. - `title` (searchable): The title of the documentation page. - `url`: The URL where the documentation page is located. - `page_id`: Unique identifier for the documentation page. - `section` (searchable): The section of the API documentation. - `section_id`: Identifier for the section. - `content` (searchable): Detailed content of the documentation page. - `locale` (filterable): Language/locale of the documentation. - `objectType` (filterable): Type of object, e.g., &amp;amp;quot;openapi&amp;amp;quot;. - `platform` (searchable/filterable): Platform related to the API. - `product` (searchable): Product associated with the API. - `tab` (filterable): Tab or category within the documentation. - **Multi-valued facets and hierarchical category patterns**: The `breadcrumbs` attribute indicates a hierarchical structure, useful for navigating through documentation sections. - **Language/locale behavior**: The `locale` attribute is used for filtering, indicating support for different languages or regions..\n\nFacet examples are not exhaustive. Use exact values observed in metadata or search results; use facet-value search when available. Never invent values or construct category paths. If no value is known for a positive filter, search the concept as query text first and refine using returned facets.\n\nUnsampled values are checked against the index. Facet validation errors stop the entire call before any result searches, even when partial results are enabled.\n\nPartial results: when at least one query succeeds and every failed query is rejected as invalid (HTTP 400), the response includes partial: true and a failures array keyed by zero-based queryIndexes. Hits, nbHits, and facets then cover only the successful queries. Any other result-search failure returns bulk_search_failed for the entire tool call.",
+        "inputSchema": {
+          "type": "object",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "queries": {
+              "minItems": 1,
+              "maxItems": 5,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "description": "Search query for this variation. Always include all the results returned, don't filter them out, nor reorder them."
+                  },
+                  "facet_product": {
+                    "description": "Exact-value facet filter for product. Preserve the value's formatting. Values within this facet use OR; different facets use AND. Known examples (not an exhaustive list): 'api-ref', 'rtc', 'im', 'rtm', 'marketplace', 'whiteboard', 'flexible-classroom', 'faq', 'cloud-recording', 'on-premise-recording', 'build', 'agora-analytics', 'rtc-server-sdk', 'studio', 'iot', 'models', 'speech-to-text', 'rtmp-gateway', 'release-notes', 'transcoding', 'glossary', 'best-practices', 'media-push', 'media-pull', 'device-kit', 'reference', 'billing', 'security-privacy', 'console-setup', 'convoai', 'core-concepts', 'cloud-recording-rest', 'cloud-transcoding-rest', 'media-gateway-rest', 'agora-cli', 'rtc-rest', 'firewall', 'get-started', 'speech-to-text-rest', 'signaling-rest', 'start-with-ai', 'agora-mcp', 'agora-skills', 'ai', 'introduction', 'recipes', 'account', 'api-reference', 'overview', 'sdks'.",
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "facet_platform": {
+                    "description": "Exact-value facet filter for platform. Preserve the value's formatting. Values within this facet use OR; different facets use AND. Known examples (not an exhaustive list): 'web', 'android', 'ios', 'windows', 'flutter', 'unity', 'react-native', 'macos', 'electron', 'unreal'.",
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Array of self-contained search variations (max 5). Each variation carries its own query AND its own facet_<name> filters, so you can vary the query and the facets together in a single call."
+            },
+            "attributesToRetrieve": {
+              "default": [
+                "*"
+              ],
+              "description": "List of attributes to retrieve. If not specified, all attributes are returned. If user specifies something to return, leverage this setting to ensure minimal payload. '*' means all attributes.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "page": {
+              "default": 0,
+              "description": "Specify the page to retrieve.",
+              "type": "number",
+              "minimum": 0
+            },
+            "hitsPerPage": {
+              "default": 5,
+              "description": "Number of hits per page.",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "clickAnalytics": {
+              "default": true,
+              "description": "Whether to enable click analytics for this search. When true, Algolia tracks click events for analytics and Insights.",
+              "type": "boolean"
+            },
+            "userIntent": {
+              "type": "string",
+              "description": "How the LLM interpreted the user's intention and decided to use available tools to achieve the result. Describe the user's goal and the reasoning behind choosing this tool (e.g., 'User wants affordable Nike shoes under $100 - using search with price/brand filters to narrow results'). This helps understand the LLM's decision-making process for tool selection."
+            },
+            "originalQuery": {
+              "type": "string",
+              "description": "The original, unmodified user prompt that was sent to the LLM. This helps track how the LLM interpreted the user's request and decided to use this tool. Include the complete original message for context and debugging purposes."
+            },
+            "sessionId": {
+              "type": "string",
+              "description": "A unique session identifier (UUID format) that represents the user's current chat session. The LLM should generate and maintain the same UUID for all requests within a single user conversation, allowing analytics and search behavior to be grouped by session. Format (UUIDv4): xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (e.g., '550e8400-e29b-41d4-a716-446655440000')."
+            }
+          },
+          "required": [
+            "queries",
+            "userIntent",
+            "originalQuery",
+            "sessionId"
+          ]
+        }
+      }
+    ]
+  }
+}
