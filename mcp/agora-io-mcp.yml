@@ -20,16 +20,106 @@ tools:
     or exploring possible facet values (e.g., brand, category, color).
 - name: algolia_search_index_agora_api_refapirefcrawler
   description: 'Search the Algolia index "agora_api_refAPIRefCrawler" across multiple query variations
-    and return deduplicated hits with merged facets.  About this index: Use this index to look up SDK
-    methods, classes, parameters, callbacks, and usage deta'
+    and return deduplicated hits with merged facets.
+
+
+    About this index: Use this index to look up SDK methods, classes, parameters, callbacks, and usage
+    details across Agora&amp;amp;#39;s real-time communication SDKs. &amp;amp;gt; Note: Signaling SDK
+    API references are not in this index. Use `docs_platform_aware_markdown` with `facet_product: signaling`
+    instead. &amp;amp;gt; Note: iOS and macOS are not in this index. Use `agora_swift_api_ref` instead.
+    ## Available Products - `video-sdk` — Video calling SDK - `voice-sdk` — Voice calling SDK (shares
+    most methods with video-sdk) - `chat-sdk` — Chat/messaging SDK - `interactive-whiteboard-sdk` — Whiteboard
+    SDK - `server-gateway-sdk` — Server-side gateway SDK - `iot-sdk` — IoT SDK - `mediaplayer-kit` — Media
+    player SDK - `flexible-classroom-sdk` — Classroom SDK ## Available Platforms `android`, `web`, `cpp`,
+    `unity`, `electron`, `flutter`, `reactjs`, `react-native`, `unreal-engine`, `blueprint`, `windows-csharp`,
+    `linux-cpp`, `linux-java`, `python`, `go` ## Versions - `4.x` — Video/Voice SDK - `6.x` — Flutter
+    - `2.x` — React JS, Whiteboard - `1.x` — Chat SDK, IoT, MediaPlayer Kit ## Search Tips - Search by
+    method name, class name, or feature description - Web SDK methods are on interfaces like `IAgoraRTCClient`,
+    `ILocalAudioTrack` - React JS uses hooks and components: `useClientEvent`, `useRemoteUsers`, `AgoraRTCProvider`
+    - Method overloads are indicated by `[1/3]`, `[2/3]` etc. in the `methodName` field - The `content`
+    field is truncated at 5000 characters — use the `url` for the full page.
+
+
+    Facet examples are not exhaustive. Use exact values observed in metadata or search results; use facet-value
+    search when available. Never invent values or construct category paths. If no value is known for a
+    positive filter, search the concept as query text first and refine using returned facets.
+
+
+    Unsampled values are checked against the index. Facet validation errors stop the entire call before
+    any result searches, even when partial results are enabled.
+
+
+    Partial results: when at least one query succeeds and every failed query is rejected as invalid (HTTP
+    400), the response includes partial: true and a failures array keyed by zero-based queryIndexes. Hits,
+    nbHits, and facets then cover only the successful queries. Any other result-search failure returns
+    bulk_search_failed for the entire tool call.'
 - name: algolia_search_index_agora_swift_api_ref
   description: 'Search the Algolia index "agora_swift_api_ref" across multiple query variations and return
-    deduplicated hits with merged facets.  About this index: Use this index to look up classes, methods,
-    properties, enumerations, and operators for Agor'
+    deduplicated hits with merged facets.
+
+
+    About this index: Use this index to look up classes, methods, properties, enumerations, and operators
+    for Agora&amp;amp;#39;s iOS and macOS SDKs. Content is extracted from DocC archives. ## Available
+    Facets - `platform` — `ios`, `macos` - `product` — `video-calling` - `version` — `4.x` - `symbol_kind`
+    — `class`, `method`, `property`, `enum`, `case`, `op`, `struct`, `protocol`, `typealias` ## Key Fields
+    - `abstract` — human-readable description of the symbol - `declaration` — full Swift signature including
+    parameters and return type - `parent` — the class or enum the symbol belongs to - `url` — always include
+    this in responses ## Search Tips - Search by symbol name for exact lookups — `joinChannel`, `AgoraRtcEngineKit`,
+    `muteLocalAudioStream` - Search by concept for discovery — `audio mixing`, `screen sharing`, `encryption`
+    - Use `symbol_kind` to narrow results when the user asks for methods or properties on a specific class.
+
+
+    Facet examples are not exhaustive. Use exact values observed in metadata or search results; use facet-value
+    search when available. Never invent values or construct category paths. If no value is known for a
+    positive filter, search the concept as query text first and refine using returned facets.
+
+
+    Unsampled values are checked against the index. Facet validation errors stop the entire call before
+    any result searches, even when partial results are enabled.
+
+
+    Partial results: when at least one query succeeds and every failed query is rejected as invalid (HTTP
+    400), the response includes partial: true and a failures array keyed by zero-based queryIndexes. Hits,
+    nbHits, and facets then cover only the successful queries. Any other result-search failure returns
+    bulk_search_failed for the entire tool call.'
 - name: algolia_search_index_docs_portal_en
   description: 'Search the Algolia index "docs_portal_en" across multiple query variations and return
-    deduplicated hits with merged facets.  About this index: - **What this index contains**: 1 record
-    = Documentation page related to API references for speec'
+    deduplicated hits with merged facets.
+
+
+    About this index: - **What this index contains**: 1 record = Documentation page related to API references
+    for speech-to-text services. - **Which industry or industries it serves**: Technology, specifically
+    API documentation for speech-to-text services. - **Who would use this index**: Developers, technical
+    writers, and internal teams managing API documentation. - **Primary use cases**: Search and filtering
+    of API documentation, enabling users to quickly find relevant API endpoints and details. - **Define
+    precisely what a single record represents**: A single record represents a page of API documentation,
+    including details about specific API endpoints, usage instructions, and configuration options. - **Most
+    relevant attributes**: - `breadcrumbs` (searchable): Hierarchical navigation path for the documentation.
+    - `title` (searchable): The title of the documentation page. - `url`: The URL where the documentation
+    page is located. - `page_id`: Unique identifier for the documentation page. - `section` (searchable):
+    The section of the API documentation. - `section_id`: Identifier for the section. - `content` (searchable):
+    Detailed content of the documentation page. - `locale` (filterable): Language/locale of the documentation.
+    - `objectType` (filterable): Type of object, e.g., &amp;amp;quot;openapi&amp;amp;quot;. - `platform`
+    (searchable/filterable): Platform related to the API. - `product` (searchable): Product associated
+    with the API. - `tab` (filterable): Tab or category within the documentation. - **Multi-valued facets
+    and hierarchical category patterns**: The `breadcrumbs` attribute indicates a hierarchical structure,
+    useful for navigating through documentation sections. - **Language/locale behavior**: The `locale`
+    attribute is used for filtering, indicating support for different languages or regions..
+
+
+    Facet examples are not exhaustive. Use exact values observed in metadata or search results; use facet-value
+    search when available. Never invent values or construct category paths. If no value is known for a
+    positive filter, search the concept as query text first and refine using returned facets.
+
+
+    Unsampled values are checked against the index. Facet validation errors stop the entire call before
+    any result searches, even when partial results are enabled.
+
+
+    Partial results: when at least one query succeeds and every failed query is rejected as invalid (HTTP
+    400), the response includes partial: true and a failures array keyed by zero-based queryIndexes. Hits,
+    nbHits, and facets then cover only the successful queries. Any other result-search failure returns
+    bulk_search_failed for the entire tool call.'
 tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
 descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
