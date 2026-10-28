@@ -1,4 +1,4 @@
-# Agora (agora-io)
+# Agora
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,49 +66,110 @@
 
 Agora is a real-time engagement platform providing ultra-low latency voice, video, signaling, chat, interactive whiteboard, cloud recording, real-time speech-to-text, and conversational AI infrastructure for human-to-human and human-to-AI interactions. The platform powers approximately 80 billion communication minutes monthly across 3+ billion devices, serving 1,800+ organizations including Whatnot, The Sandbox, Education First, Talkspace, HTC Vive, and Unity Technologies.
 
-**URL:** [Visit APIs.yml](https://raw.githubusercontent.com/api-evangelist/agora-io/refs/heads/main/apis.yml)
+**Areas:** Real-Time Engagement · Voice · Video · Signaling · Conversational AI · Streaming · Chat · Cloud Recording · WebRTC · Communications Platform · Real-Time
 
-## Type
-- **x-type:** company
+## Agora on APIs.io
 
-## Tags
-- Real-Time Engagement, Voice, Video, Signaling, Conversational AI, Streaming, Chat, Cloud Recording, WebRTC, Communications Platform
+Everything profiled for Agora is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/agora-io/](https://apis.io/providers/agora-io/)** — or go straight to one of the APIs or properties below.
 
-## APIs
-- **Agora Video Calling API** — Real-time video with sub-200ms latency
-- **Agora Voice Calling API** — Real-time voice chat with AI noise suppression
-- **Agora Interactive Live Streaming API** — Multi-host ultra-low latency streaming
-- **Agora Broadcast Streaming API** — One-to-many large-scale streaming
-- **Agora Signaling API (RTM)** — Real-time presence and state synchronization
-- **Agora Conversational AI Engine API** — Voice agents with LLM/ASR/TTS pipeline
-- **Agora Chat API** — Scalable in-app messaging
-- **Agora Interactive Whiteboard API** — Collaborative real-time digital whiteboard
-- **Agora Cloud Recording API** — Recording to S3, Azure, GCS, OSS, Qiniu, COS
-- **Agora Real-Time Speech-to-Text API** — Streaming transcription and translation
-- **Agora Analytics API** — Quality, performance, and usage observability
+### APIs (11)
 
-## Notes on OpenAPI
-Agora publishes per-product REST API reference documentation across the docs site (Cloud Recording, Conversational AI, Signaling RTM, Chat, Real-Time STT, Interactive Whiteboard) but does not currently expose a canonical machine-readable OpenAPI specification at a stable public URL. SDK-first delivery (iOS, Android, Web, Unity, Unreal, Flutter, React Native, Electron) is the primary integration surface for the RTC products.
+- [Agora Video Calling API](https://apis.io/apis/agora-io/agora-video-calling-api/) — The Agora Video Calling API enables real-time, interactive video communication with sub-200ms global latency. Supports one-to-one calls, group calls, and…
+- [Agora Voice Calling API](https://apis.io/apis/agora-io/agora-voice-calling-api/) — The Agora Voice Calling API embeds high-quality real-time voice chat into any application. Provides crystal-clear audio with AI noise suppression, echo…
+- [Agora Interactive Live Streaming API](https://apis.io/apis/agora-io/agora-interactive-live-streaming-api/) — The Agora Interactive Live Streaming API powers ultra-low latency live streaming with interactive multi-host capabilities for audiences of any size.…
+- [Agora Broadcast Streaming API](https://apis.io/apis/agora-io/agora-broadcast-streaming-api/) — The Agora Broadcast Streaming API supports one-way large-scale content distribution with optimized bandwidth for audience-only scenarios such as town halls,…
+- [Agora Signaling API (RTM)](https://apis.io/apis/agora-io/agora-signaling-api-rtm/) — The Agora Signaling API (formerly Real-Time Messaging / RTM) provides real-time low-latency synchronization of metadata, presence, channel events,…
+- [Agora Conversational AI Engine API](https://apis.io/apis/agora-io/agora-conversational-ai-engine-api/) — The Agora Conversational AI Engine enables building voice-enabled AI agents with sub-second response times by integrating any LLM, ASR, and TTS provider…
+- [Agora Chat API](https://apis.io/apis/agora-io/agora-chat-api/) — The Agora Chat API provides scalable in-app messaging with one-to-one chat, group chat, chat rooms, threads, reactions, attachments, push notifications, and…
+- [Agora Interactive Whiteboard API](https://apis.io/apis/agora-io/agora-interactive-whiteboard-api/) — The Agora Interactive Whiteboard API embeds collaborative real-time digital whiteboards for drawing, annotation, presentation, PPT/PDF rendering, and shared…
+- [Agora Cloud Recording API](https://apis.io/apis/agora-io/agora-cloud-recording-api/) — The Agora Cloud Recording API records voice, video, and interactive live streaming sessions to cloud storage (AWS S3, Azure Blob, Google Cloud Storage,…
+- [Agora Real-Time Speech-to-Text API](https://apis.io/apis/agora-io/agora-real-time-speech-to-text-api/) — The Agora Real-Time Speech-to-Text API provides streaming transcription and real-time translation across multiple languages, with captions delivered into…
+- [Agora Analytics API](https://apis.io/apis/agora-io/agora-analytics-api/) — The Agora Analytics API surfaces quality, performance, and usage metrics for all RTC, signaling, chat, and recording sessions. Provides call inspector,…
 
-## Timestamps
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+### Published properties
 
-## Common Properties
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [agora-io](https://apis.io/servers/agora-io/agora-io/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Agora Io Domain Security](https://apis.io/security/agora-io/agora-io-domain-security/)
+- [Agora Io Trust Center](https://apis.io/security/agora-io/agora-io-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.agora.io)
 - [Documentation](https://docs.agora.io/en/)
-- [API Reference](https://docs.agora.io/en/api-reference)
-- [Console](https://console.agora.io/)
+- [API reference](https://docs.agora.io/en/api-reference)
 - [Pricing](https://www.agora.io/en/pricing/)
-- [Status](https://status.agora.io/)
+- [Support](https://www.agora.io/en/support/)
+- [Changelog](https://docs.agora.io/en/video-calling/overview/release-notes)
 - [Blog](https://www.agora.io/en/blog/)
-- [GitHub: AgoraIO](https://github.com/AgoraIO)
-- [GitHub: AgoraIO-Community](https://github.com/AgoraIO-Community)
-- [GitHub: AgoraIO-Extensions](https://github.com/AgoraIO-Extensions)
-- [Terms of Service](https://www.agora.io/en/terms-of-service/)
-- [Privacy Policy](https://www.agora.io/en/privacy-policy/)
+- [Terms of service](https://www.agora.io/en/terms-of-service/)
+- [Privacy policy](https://www.agora.io/en/privacy-policy/)
+- [GitHub](https://github.com/AgoraIO)
+- [Status](https://status.agora.io/)
 
-## Maintainers
-**FN:** Kin Lane
+## API Evangelist rating
 
-**Email:** kin@apievangelist.com
+**Kin Score 30.3** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 80.0 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 69.0 |
+| Access clarity | 21.1 |
+
+**Agent readiness 15.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | unknown |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 16.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/agora-io/](https://apis.io/providers/agora-io/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Agora: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/agora-io/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
